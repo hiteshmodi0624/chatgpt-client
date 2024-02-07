@@ -37,7 +37,7 @@ export default function Home() {
             </Link>
             <Link
               className="flex max-w-xs flex-col gap-4 rounded-xl bg-black/10 p-4 hover:bg-white/20"
-              href="https://www.linkedin.com/in/hitesh-bishnoi"
+              href="https://www.hiteshmodi.in"
               target="_blank"
             >
               <h3 className="text-2xl font-bold">
