@@ -14,8 +14,10 @@ interface Data {
 }
 const Data = ({ curr, userId }: { curr: string; userId: string }) => {
   const [data, setData] = useState<Data[]>([]);
+  const [loading,setLoading]=useState(false);
   useEffect(() => {
     async function fetchData() {
+      setLoading(true);
       const res = await axios.post(
         "https://chatgptpromptmiddleware.onrender.com/api/requests/history",
         {
@@ -32,8 +34,8 @@ const Data = ({ curr, userId }: { curr: string; userId: string }) => {
           userId: userId,
         },
       );
-
       setData([...(res.data as { result: Data[] }).result]);
+      setLoading(false);
     }
     void fetchData();
   }, [curr, userId]);
@@ -49,7 +51,7 @@ const Data = ({ curr, userId }: { curr: string; userId: string }) => {
           <h4>Prompt Tokens</h4>
           <h4>Completions Time</h4>
         </div>
-        {data.length === 0 && (
+        {loading && (
           <ContentLoader
             speed={2}
             width={1000}

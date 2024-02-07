@@ -46,7 +46,7 @@ export default function SignInForm() {
   }
   return (
     <div className="mx-auto my-auto w-full max-w-lg border-[1px] border-seperator px-8 py-8 text-white ">
-      <Heading text={`Sign in`} className="text-center font-normal" />
+      <Heading text={`Sign In`} className="text-center font-normal" />
       <form className="mt-5 text-black">
         <Input
           placeholder="Email"
